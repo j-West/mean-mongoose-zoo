@@ -1,11 +1,9 @@
 app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact){
 
-
-  const popPage = () => {
-    AnimalFact.getAll()
+  AnimalFact.getAll()
     .then((animals) => {
-      $scope.animals = animals.animals
-      $scope.$apply()
+      $scope.animals = animals
+      console.log($scope.animals)
     })
 
     ZookeeperFact.getAll()
@@ -13,9 +11,6 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact){
       $scope.zookeepers = zookeepers.zookeepers;
       $scope.$apply()
     })
-  }
-
-  popPage()
 
   resetCheckboxes = (arrayOfCheckboxes) => {
     for (var i = 0; i < arrayOfCheckboxes.length; i++) {
