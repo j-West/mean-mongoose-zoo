@@ -1,39 +1,30 @@
 app.factory('AnimalFact', function($http) { 
 
   return {
+
     getAll: function() {
-       return $http.get(`http://localhost:3000/api/animals`)
-          .then((val) => {
-            console.log('val', val)
-            return val.data
-          })
-      },
+      return $http.get(`http://localhost:3000/api/animals`)
+        .then((val) =>  val.data)
+    },
+    getOne: function(id) {
+      return $http.get(`http://localhost:3000/api/animals/${id}`)
+        .then((val) => val.data)      
+    },
     add: function(newAnimal) {
-      return new Promise((resolve, reject) =>{
-        $http.post(`http://localhost:3000/api/addAnimal`, newAnimal)
-          .then((data) => {
-            resolve(data)
-          })
-        })
+      return $http.post(`http://localhost:3000/api/animals`, newAnimal)
+        .then((val) => val.data)
     },
 
     remove: function(id) {
-      return new Promise((resolve,reject) => {
-        $http.delete(`http://localhost:3000/api/removeAnimal/${id}`)
-          .then((data) => {
-            resolve()
-          })
-      })
+      return $http.delete(`http://localhost:3000/api/animals/${id}`)
+        .then((data) => val.data)
     },
 
     update: (id, updateInfo) => {
-      return new Promise((resolve, reject) => {
-        $http.patch(`http://localhost:3000/api/updateAnimal/${id}`, updateInfo)
-        .then((data) => {
-          resolve()
-        })
-        .catch((err) => console.log("err:", err))
-      })
+      return $http.patch(`http://localhost:3000/api/animals/${id}`, updateInfo)
+        .then((val) => val.data)
+        // .catch((err) => console.log("err:", err))
     } 
+
   }
 });
