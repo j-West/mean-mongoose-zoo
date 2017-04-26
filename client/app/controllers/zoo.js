@@ -1,4 +1,4 @@
-app.controller('ZooCtrl', function($scope, AnimalFact){
+app.controller('ZooCtrl', function($scope, AnimalFact, TrainerFact){
 
   $scope.view = 'animals'
 
@@ -10,6 +10,16 @@ app.controller('ZooCtrl', function($scope, AnimalFact){
   }
 
   getAnimals()
+
+const getTrainers = () => {
+  TrainerFact.getAll()
+  .then(trainers => {
+    $scope.trainers = trainers
+    console.log($scope.trainers);
+  })
+}
+
+getTrainers()
 
   $scope.remove = (id) => {
     AnimalFact.remove(id)
