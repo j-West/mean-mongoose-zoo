@@ -1,6 +1,7 @@
-app.controller('ZooCtrl', function($scope, AnimalFact, TrainerFact){
+app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
 
-  $scope.view = 'animals';
+  $scope.view = 'animals'
+  $scope.activeZone = ''
   $scope.editing = false;
 
   const getAnimals = () =>{
@@ -8,8 +9,21 @@ app.controller('ZooCtrl', function($scope, AnimalFact, TrainerFact){
       .then((data) => {
         console.log(data);
         $scope.animals = data
+        console.log(data)
       })
   }
+
+  ZoneFact.getAll()
+  .then(zones => {
+    $scope.zones = zones
+  })
+
+  ZookeeperFact.getAll()
+  .then(zookeepers => {
+    // console.log(zookeepers)
+    $scope.zookeepers = zookeepers
+  })
+
   getAnimals()
 
   //REMOVE ANIMAL
@@ -43,6 +57,11 @@ app.controller('ZooCtrl', function($scope, AnimalFact, TrainerFact){
   $scope.setView = (view) => {
     console.log(view)
     $scope.view = view
+  }
+
+  $scope.showZone = (zoneId) => {
+    $scope.activeZone = zoneId
+    console.log($scope.activeZone)
   }
 
   // TRAINERS

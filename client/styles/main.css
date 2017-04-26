@@ -95,3 +95,77 @@ input {
 .views > a > input {
   background: none;
 }
+
+/*  MAP STUFF   */
+
+
+.map {
+  /*margin-left: 5%;*/
+  height: 400px;
+  width: 580px;
+  background: url(/app/zoo_map.jpg) center / cover no-repeat;
+  /*padding-top: 5px;*/
+}
+
+.map-button {
+    background-color: white;
+  border: none;
+  border-radius: 2px;
+  border: 2px solid #366a36;
+  font-family: 'Gorditas', cursive;
+  font-size: 1em;
+  color: #366a36;
+  padding: 1%;
+  margin: 3%;
+  border-radius: 5px;
+}
+
+.nw {
+  margin-left: 20%
+}
+
+.ne {
+  margin-left: 40%;
+}
+
+.se {
+  margin-left: 37%;
+}
+
+.sw {
+  margin-left: 20%
+}
+
+.cent {
+  margin-left: 45%;
+}
+
+.top-row {
+  margin-top: 10%;
+}
+
+.cent-row {
+  margin-top: 10%;
+}
+
+.bottom-row {
+  margin-top: 7%;
+}
+
+.active-zone {
+  margin-left: 50%;
+  display: inline;
+}
+
+.zookeeper_photo {
+  width:300px;
+  height: auto;
+}
+
+.zookeeper_name {
+  font-size: 30px;
+}
+
+.animallist {
+  display: inline;
+}
