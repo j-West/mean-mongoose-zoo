@@ -154,10 +154,12 @@ input {
 
 .active-zone {
   margin-left: 50%;
+  display: inline;
 }
 
 .zookeeper_photo {
-  height: 370px;
+  width:300px;
+  height: auto;
 }
 
 .zookeeper_name {
