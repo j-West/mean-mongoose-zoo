@@ -61,3 +61,7 @@ input {
   padding: 1% 2%;
   margin: 1%;
 }
+
+.center {
+  text-align: center;
+}
