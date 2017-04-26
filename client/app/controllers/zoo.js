@@ -41,19 +41,41 @@ app.controller('ZooCtrl', function($scope, AnimalFact, TrainerFact){
 
   // NAV FUNCTION
   $scope.setView = (view) => {
+    console.log(view)
     $scope.view = view
   }
 
+  // TRAINERS
 
-
-
-  const getTrainers = () => {
+    const getTrainers = () => {
     TrainerFact.getAll()
     .then(trainers => {
       $scope.trainers = trainers
       console.log($scope.trainers);
     })
   }
+
+// UPDATE TRAINER
+$scope.updateTrainer = (id, name, photo) => {
+  const trainerEdits = {
+    id: id,
+    name: name,
+    photo: photo
+  }
+  TrainerFact.patch(trainerEdits)
+  .then(() => {
+    $scope.editing = false
+    getTrainers()
+  })
+}
+// REMOVE TRAINER
+  $scope.removeTrainer = (id, index) => {
+    TrainerFact.delete(id)
+    .then(() => {
+      $scope.trainers.splice(index, 1)
+    })
+  }
+
 
   getTrainers()
 

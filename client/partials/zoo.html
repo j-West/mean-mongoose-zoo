@@ -34,23 +34,30 @@
       <input type="button" value="save" ng-click="save(animal.id, animal.name, animal.species, animal.age)">
     </div>
   </div>
-<div>
+</div>
+
 
               <!--TRAINERS-->
 
 <div ng-show="view === 'trainers'">
-  <div class="animalCard" ng-repeat="trainer in trainers">
-    <img class="animalPic" src="{{trainer.photo}}">
-      <p ng-if="trainer.name.length === 0">The position to train {{ trainer.animal_type }} is currently open.  We are taking applications, please send your resume and a rock to joelLegg@hotmail.com</p>
+  <div class="animalCard" ng-repeat="trainer in trainers | orderBy : 'id'">
+    <div ng-if="trainer.name.length !== 0">
+      <img class="animalPic" src="{{ trainer.photo }}">
       <p ng-if="trainer.name.length !== 0">{{ trainer.name }} is a trainer of {{ trainer.animal_type }}.  {{ trainer.name }} teaches {{ trainer.animal_type }} the trick: {{ trainer.trick_name }}</p>
+    </div>
+    <div ng-if="trainer.name.length === 0">
+      <img class="animalPic" src="https://americanleadershipacademy.org/wp-content/uploads/2016/06/Job-Opening2.png">
+      <p ng-if="trainer.name.length === 0">The position to train {{ trainer.animal_type }} is currently open.  We are taking applications, please send your resume and a rock to joelLegg@hotmail.com</p>
+    </div>
     <div>
       <input type="button" value="edit" ng-click="editing = !editing">
     </div>
-    <div ng-if="true">
-      <input type="text" ng-model="trainer.name">
-      <input type="text" ng-model="trainer.animal_type">
-      <input type="text" ng-model="trainer.trick_name">
-      <input type="button" value="save" ng-click="save(trainer.id, trainer)">
+    <div ng-show="editing">
+      <label class="label" for="name">Name</label>
+      <input name='name' type="text" ng-model="trainer.name">
+      <label class="label" for="name">Photo</label>
+      <input name='name' type="text" ng-model="trainer.photo">
+      <input type="button" value="save" ng-click="updateTrainer(trainer.id, trainer.name, trainer.photo)">
     </div>
   </div>
 </div>

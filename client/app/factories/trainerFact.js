@@ -17,11 +17,11 @@ app.factory('TrainerFact', function($http){
     },
     delete: function(id) {
       return $http.delete(`http://localhost:3000/api/trainers/${id}`)
-        .then((val) =>  val)
+        .then((val) =>  val.data)
     },
     patch: function(updatedTrainer) {
       return $http.patch(`http://localhost:3000/api/trainers`, updatedTrainer)
-        .then((val) =>  val)
+        .then((val) =>  val.data)
     }
   }
 })
