@@ -13,16 +13,16 @@
 </div>
 
 <div ng-show="view === 'animals'">
-  <div class="animalCard" ng-repeat="animal in animals">
+  <div class="animalCard" ng-repeat="animal in animals | orderBy : 'id' ">
     <img class="animalPic" src="{{animal.photo}}">
-    <div class="">
+    <div>
       {{ animal.name }} is a {{animal.age}} year old {{animal.species}} who resides in the {{animal.zone.location}} zone.
     </div>
     <div>
-      <input type="button" value="remove" ng-click="remove(animal.id)">
+      <input type="button" value="remove" ng-click="remove(animal.id, $index)">
       <input type="button" value="edit" ng-click="editing = !editing">
     </div>
-    <div ng-if="true">
+    <div ng-show="editing">
       <label class="label" for="name">Name</label>
       <input name='name' type="text" ng-model="animal.name">
 
@@ -31,7 +31,7 @@
 
       <label class="label" for="age">Age</label>
       <input name='age' type="text" ng-model="animal.age">
-      <input type="button" value="save" ng-click="save(animal._id, animal)">
+      <input type="button" value="save" ng-click="save(animal.id, animal.name, animal.species, animal.age)">
     </div>
   </div>
 <div>
@@ -54,4 +54,3 @@
     </div>
   </div>
 </div>
-
