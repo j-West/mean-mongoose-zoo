@@ -38,13 +38,12 @@
 
               <!--TRAINERS-->
 
-
-    <div class="animalCard" ng-repeat="trainer in trainers">
-  <img class="animalPic" src="{{trainer.photo}}">
-    {{ trainer.name }} is a trainer of {{ trainer.animal_type }}.  {{ trainer.name }} teaches {{ trainer.animal_type }} the trick: {{ trainer.trick_name }}
-   
+<div ng-show="view === 'trainers'">
+  <div class="animalCard" ng-repeat="trainer in trainers">
+    <img class="animalPic" src="{{trainer.photo}}">
+      <p ng-if="trainer.name.length === 0">The position to train {{ trainer.animal_type }} is currently open.  We are taking applications, please send your resume and a rock to joelLegg@hotmail.com</p>
+      <p ng-if="trainer.name.length !== 0">{{ trainer.name }} is a trainer of {{ trainer.animal_type }}.  {{ trainer.name }} teaches {{ trainer.animal_type }} the trick: {{ trainer.trick_name }}</p>
     <div>
-      <input type="button" value="remove" ng-click="remove(trainer.id)">
       <input type="button" value="edit" ng-click="editing = !editing">
     </div>
     <div ng-if="true">
@@ -54,4 +53,5 @@
       <input type="button" value="save" ng-click="save(trainer.id, trainer)">
     </div>
   </div>
+</div>
 
