@@ -6,7 +6,6 @@ app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
     AnimalFact.getAll()
       .then((data) => {
         $scope.animals = data
-        console.log($scope.animals);
       })
   }
 
@@ -38,6 +37,10 @@ app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
   //     popPage()
   //   })
   // }
+
+  $scope.setView = (view) => {
+    $scope.view = view
+  }
 
 
 })

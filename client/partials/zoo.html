@@ -1,33 +1,40 @@
-<h1>ZOO!</h1>
+<div class="center views">
+  <a href="/#!/add"><input type="button" value="edit your zoo"></a>
+  <a href="/#!/zoo"><input type="button" value="look at your zoo"></a>
+  <a href="/#!/"><input type="button" value="home"></a>
+  <h1>Look at all these animals you have!</h1>
+</div>
 
-<a href="/#!/add"><input type="button" value="edit your zoo"></a>
-<a href="/#!/zoo"><input type="button" value="look at your zoo"></a>
-<a href="/#!/"><input type="button" value="home"></a>
+<div class="center nav-search">
+  <button type="button" ng-click="setView('animals')">Animals</button>
+  <button type="button" ng-click="setView('zones')">Zones</button>
+  <button type="button" ng-click="setView('trainers')">Trainers</button>
+</div>
 
 
-
+<div ng-show="view === 'animals'">
   <div class="animalCard" ng-repeat="animal in animals">
-    <h2>Look at all these animals you have!</h2>
     <img class="animalPic" src="{{animal.photo}}">
-    {{ animal.name }} is a {{animal.age}} year old {{animal.species}} cared for by
-    <span ng-if="animal.zookeepers.length === 0">
-      no one
-    </span>
-    <span ng-repeat="zookeeper in animal.zookeepers">
-      {{$last? ' and ' : ''}}{{zookeeper.name}}{{$last? '.' : ', '}}
-    </span>
+    <div class="">
+      {{ animal.name }} is a {{animal.age}} year old {{animal.species}} who resides in the {{animal.zone.location}} zone.
+    </div>
     <div>
       <input type="button" value="remove" ng-click="remove(animal.id)">
       <input type="button" value="edit" ng-click="editing = !editing">
     </div>
     <div ng-if="true">
-      <input type="text" ng-model="animal.name">
-      <input type="text" ng-model="animal.species">
-      <input type="text" ng-model="animal.age">
+      <label class="label" for="name">Name</label>
+      <input name='name' type="text" ng-model="animal.name">
+
+      <label class="label" for="spec">Spec</label>
+      <input name='spec' type="text" ng-model="animal.species">
+
+      <label class="label" for="age">Age</label>
+      <input name='age' type="text" ng-model="animal.age">
       <input type="button" value="save" ng-click="save(animal._id, animal)">
     </div>
   </div>
-  
+</div>
 
 
 
@@ -36,22 +43,20 @@
 
 
 
+  <div class="map" ng-show="view == 'zones'">
+  <div class="row top-row">
+    <button class="map-button nw">Northwest</button>
+    <button class="map-button ne">Northeast</button>
+  </div>
+  <div class="row cent-row">
+    <button class="map-button cent">Central</button>
+  </div>
 
-  <div ng-show="view == 'zones'">
-     <!-- <div  class="zoneCard" ng-repeat="zone in zones"> -->
-    <!-- <img class="zonePic" src="{{zone.photo}}"> -->
-<!--       The {{ zone.location }} zone is cared for by {{  }}
-      <div>
-        <input type="button" value="remove" ng-click="remove(zone.id)">
-        <input type="button" value="edit" ng-click="editing = !editing">
-      </div>
-      <div ng-if="true">
-        <input type="text" ng-model="zone.name">
-        <input type="text" ng-model="zone.species">
-        <input type="text" ng-model="zone.age">
-        <input type="button" value="save" ng-click="save(zone._id, zone)">
-      </div>
-    </div> -->
+  <div class="row bottom-row">
+    <button class="map-button sw">Southwest</button>
+    <button class="map-button se">Southeast</button>
+  </div>
 
-    <img src="https://www.visualitineraries.com/img/locations/Taronga-Zoo-9842.jpg" />
+
+    <!-- <img src="https://www.visualitineraries.com/img/locations/Taronga-Zoo-9842.jpg" /> -->
   </div>

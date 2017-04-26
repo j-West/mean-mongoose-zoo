@@ -16,11 +16,13 @@ body {
   display: inline-block;
   width: 30%;
   height: 350px;
-  overflow: scroll;
+  /*overflow: scroll;*/
 }
 
 .animalPic {
-  width: 90%;
+  border: 10px dashed #366a36;
+  max-height: 200px;
+  width: auto;
   margin: 5%;
 }
 
@@ -60,4 +62,83 @@ input {
   color: #366a36;
   padding: 1% 2%;
   margin: 1%;
+}
+
+.center {
+  text-align: center;
+}
+
+.label {
+  margin-right: 3%;
+}
+
+.nav-search {
+  background-color: orange;
+  padding: 1%;
+  border: 5px solid white;
+}
+
+.nav-search > button {
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+  border: 2px solid #366a36;
+  font-family: 'Gorditas', cursive;
+  font-size: 1em;
+  color: #366a36;
+  padding: 1%;
+  margin: 1%;
+  border-radius: 5px;
+}
+
+
+.views > a > input {
+  background: none;
+}
+
+/*  MAP STUFF   */
+
+
+.map {
+  /*margin-left: 5%;*/
+  height: 800px;
+  width: 1140px;
+  background: url(/app/zoo_map.jpg) center / cover no-repeat
+}
+
+.map-button {
+    background-color: white;
+  border: none;
+  border-radius: 2px;
+  border: 2px solid #366a36;
+  font-family: 'Gorditas', cursive;
+  font-size: 1em;
+  color: #366a36;
+  padding: 1%;
+  margin: 3%;
+  border-radius: 5px;
+}
+
+.ne {
+  margin-left: 50%;
+}
+
+.se {
+  margin-left: 37%;
+}
+
+.sw {
+  margin-left: 20%
+}
+
+.cent {
+  margin-left: 45%;
+}
+
+.cent-row {
+  margin-top: 10%;
+}
+
+.bottom-row {
+  margin-top: 7%;
 }
