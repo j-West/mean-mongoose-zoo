@@ -8,18 +8,19 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact, Zone
 
     ZookeeperFact.getAll()
     .then((zookeepers) => {
+      console.log(zookeepers)
       $scope.zookeepers = zookeepers;
     })
 
     ZoneFact.getAll()
     .then(zones => {
-      console.log(zones)
+      // console.log(zones)
       $scope.zones = zones
     })
 
     TrainerFact.getAll()
     .then(trainers => {
-      console.log(trainers)
+      // console.log(trainers)
       $scope.trainers = trainers
     })
 
@@ -30,19 +31,18 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact, Zone
     $scope.newAnimal = {}
   }
 
-  // $scope.addZookeeper = () => {
-  //   ZookeeperFact.add($scope.newZookeeper)
-  //   .then(() => { 
-  //     $scope.zookeepers.push($scope.newZookeeper)
-  //     $scope.newZookeeper = {}
-  //     $scope.$apply()
-  //   })
-  // }
+  $scope.addZookeeper = () => {
+    ZookeeperFact.add($scope.newZookeeper)
+    .then(() => { 
+      $scope.zookeepers.push($scope.newZookeeper)
+      $scope.newZookeeper = {}
+    })
+  }
 
-  // $scope.deleteZookeeper = (id) => {
-  //   ZookeeperFact.delete(id)
-  //   .then(() => {
-  //     popPage()
-  //   })
-  // }
+  $scope.deleteZookeeper = (id) => {
+    ZookeeperFact.delete(id)
+    .then(() => {
+      popPage()
+    })
+  }
 })
