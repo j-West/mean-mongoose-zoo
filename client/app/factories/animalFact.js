@@ -1,4 +1,4 @@
-app.factory('AnimalFact', function($http) { 
+app.factory('AnimalFact', function($http) {
 
   return {
 
@@ -8,7 +8,7 @@ app.factory('AnimalFact', function($http) {
     },
     getOne: function(id) {
       return $http.get(`http://localhost:3000/api/animals/${id}`)
-        .then((val) => val.data)      
+        .then((val) => val.data)
     },
     add: function(newAnimal) {
       return $http.post(`http://localhost:3000/api/animals`, newAnimal)
@@ -17,14 +17,14 @@ app.factory('AnimalFact', function($http) {
 
     remove: function(id) {
       return $http.delete(`http://localhost:3000/api/animals/${id}`)
-        .then((data) => val.data)
+        .then((val) => val.data)
     },
 
-    update: (id, updateInfo) => {
-      return $http.patch(`http://localhost:3000/api/animals/${id}`, updateInfo)
+    update: (updateInfo) => {
+      return $http.patch(`http://localhost:3000/api/animals`, updateInfo)
         .then((val) => val.data)
         // .catch((err) => console.log("err:", err))
-    } 
+    }
 
   }
 });

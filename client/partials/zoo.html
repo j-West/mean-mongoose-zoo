@@ -1,28 +1,56 @@
-<h1>ZOO!</h1>
+<div class="center views">
+  <a href="/#!/add"><input type="button" value="edit your zoo"></a>
+  <a href="/#!/zoo"><input type="button" value="look at your zoo"></a>
+  <a href="/#!/"><input type="button" value="home"></a>
+  <h1>Look at all these animals you have!</h1>
+</div>
 
-<a href="/#!/add"><input type="button" value="edit your zoo"></a>
-<a href="/#!/zoo"><input type="button" value="look at your zoo"></a>
-<a href="/#!/"><input type="button" value="home"></a>
+<div class="center nav-search">
+  <button type="button" ng-click="setView('animals')">Animals</button>
+  <button type="button" ng-click="setView('zones')">Zones</button>
+  <button type="button" ng-click="setView('trainers')">Trainers</button>
 
-<h2>Look at all these animals you have!</h2>
+</div>
 
-  <div class="animalCard" ng-repeat="animal in animals">
-  <img class="animalPic" src="http://www.oregonzoo.org/sites/default/files/styles/article-full/public/H_caracal-kitten_1.jpg?itok=DsNk2oS2">
-  {{ animal.name }} is a {{animal.age}} year old {{animal.species}} cared for by 
-    <span ng-if="animal.zookeepers.length === 0"> 
-      no one
-    </span>
-    <span ng-repeat="zookeeper in animal.zookeepers">
-      {{$last? ' and ' : ''}}{{zookeeper.name}}{{$last? '.' : ', '}}
-    </span>
+<div ng-show="view === 'animals'">
+  <div class="animalCard" ng-repeat="animal in animals | orderBy : 'id' ">
+    <img class="animalPic" src="{{animal.photo}}">
     <div>
-      <input type="button" value="remove" ng-click="remove(animal._id)">
+      {{ animal.name }} is a {{animal.age}} year old {{animal.species}} who resides in the {{animal.zone.location}} zone.
+    </div>
+    <div>
+      <input type="button" value="remove" ng-click="remove(animal.id, $index)">
       <input type="button" value="edit" ng-click="editing = !editing">
     </div>
-    <div ng-if="editing">
-      <input type="text" ng-model="animal.name">
-      <input type="text" ng-model="animal.species">
-      <input type="text" ng-model="animal.age">
-      <input type="button" value="save" ng-click="save(animal._id, animal)">
+    <div ng-show="editing">
+      <label class="label" for="name">Name</label>
+      <input name='name' type="text" ng-model="animal.name">
+
+      <label class="label" for="spec">Spec</label>
+      <input name='spec' type="text" ng-model="animal.species">
+
+      <label class="label" for="age">Age</label>
+      <input name='age' type="text" ng-model="animal.age">
+      <input type="button" value="save" ng-click="save(animal.id, animal.name, animal.species, animal.age)">
     </div>
   </div>
+<div>
+
+              <!--TRAINERS-->
+
+<div ng-show="view === 'trainers'">
+  <div class="animalCard" ng-repeat="trainer in trainers">
+    <img class="animalPic" src="{{trainer.photo}}">
+      <p ng-if="trainer.name.length === 0">The position to train {{ trainer.animal_type }} is currently open.  We are taking applications, please send your resume and a rock to joelLegg@hotmail.com</p>
+      <p ng-if="trainer.name.length !== 0">{{ trainer.name }} is a trainer of {{ trainer.animal_type }}.  {{ trainer.name }} teaches {{ trainer.animal_type }} the trick: {{ trainer.trick_name }}</p>
+    <div>
+      <input type="button" value="edit" ng-click="editing = !editing">
+    </div>
+    <div ng-if="true">
+      <input type="text" ng-model="trainer.name">
+      <input type="text" ng-model="trainer.animal_type">
+      <input type="text" ng-model="trainer.trick_name">
+      <input type="button" value="save" ng-click="save(trainer.id, trainer)">
+    </div>
+  </div>
+</div>

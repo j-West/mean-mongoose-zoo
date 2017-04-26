@@ -1,32 +1,60 @@
-app.controller('ZooCtrl', function($scope, AnimalFact){
+app.controller('ZooCtrl', function($scope, AnimalFact, TrainerFact){
 
-$scope.editing = false
+  $scope.view = 'animals';
+  $scope.editing = false;
 
-const popPage = () =>{
-  AnimalFact.getAll()
-    .then((animals) => {
-      $scope.animals = animals.animals
-      $scope.$apply()
+  const getAnimals = () =>{
+    AnimalFact.getAll()
+      .then((data) => {
+        console.log(data);
+        $scope.animals = data
+      })
+  }
+  getAnimals()
+
+  //REMOVE ANIMAL
+  $scope.remove = (id, index) => {
+
+    AnimalFact.remove(id)
+    .then(() => {
+      // getAnimals()
+      $scope.animals.splice(index, 1)
     })
-}
+  }
 
-popPage()
+  // UPDATE
+  $scope.save = (id, name, species, age) => {
+    const animal = {
+      id: id,
+      name: name,
+      species: species,
+      age: age
+    }
 
-$scope.remove = (id) => {
-  AnimalFact.remove(id)
-  .then(() => {
-    popPage()
-  })
-}
+    AnimalFact.update(animal)
+    .then(() => {
+      console.log("updated!!")
+      $scope.editing = false;
+      getAnimals()
+    })
+  }
 
-$scope.save = (id, updateInfo) => {
-  AnimalFact.update(id, updateInfo)
-  .then(() => {
-    console.log("updated!!")
-    $scope.editing = false;
-    popPage()
-  })
-}
+  // NAV FUNCTION
+  $scope.setView = (view) => {
+    $scope.view = view
+  }
 
+
+
+
+  const getTrainers = () => {
+    TrainerFact.getAll()
+    .then(trainers => {
+      $scope.trainers = trainers
+      console.log($scope.trainers);
+    })
+  }
+
+  getTrainers()
 
 })
