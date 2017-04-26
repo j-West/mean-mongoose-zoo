@@ -1,4 +1,4 @@
-app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact, ZoneFact){
+app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact, ZoneFact, TrainerFact){
 
   AnimalFact.getAll()
     .then((animals) => {
@@ -17,26 +17,18 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact, Zone
       $scope.zones = zones
     })
 
-  // resetCheckboxes = (arrayOfCheckboxes) => {
-  //   for (var i = 0; i < arrayOfCheckboxes.length; i++) {
-  //     arrayOfCheckboxes[i].checked = false
-  //   }
-  // }
+    TrainerFact.getAll()
+    .then(trainers => {
+      console.log(trainers)
+      $scope.trainers = trainers
+    })
 
-  // $scope.addAnimal = () => {
-  //   let selectedzookeepers = [];
-  //   for (var i = 0; i < $scope.zookeepers.length; i++) {
-  //     if($scope.zookeepers[i].checked){
-  //       selectedzookeepers.push($scope.zookeepers[i])
-  //     }
-  //   }
-  //   console.log("checked zookeepers", selectedzookeepers)
-  //   $scope.newAnimal.zookeepers = selectedzookeepers;
-  //   AnimalFact.add($scope.newAnimal)
-  //   .then((data) => {})
-  //   $scope.newAnimal = {}
-  //   resetCheckboxes($scope.zookeepers)
-  // }
+
+  $scope.addAnimal = () => {
+    AnimalFact.add($scope.newAnimal)
+    .then((data) => {})
+    $scope.newAnimal = {}
+  }
 
   // $scope.addZookeeper = () => {
   //   ZookeeperFact.add($scope.newZookeeper)

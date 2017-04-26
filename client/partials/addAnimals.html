@@ -10,6 +10,8 @@
     <input type="text" ng-model="newAnimal.type" placeholder="Birds of Prey" name="type">
     <label for="age">Age</label>
     <input type="number" ng-model="newAnimal.age" placeholder="3" name="age">
+    <label for="photo">Photo</label>
+    <input type="text" ng-model="newAnimal.photo" placeholder="url" name="photo">
     <fieldset>
       <legend>Select Zone</legend>
       <div ng-repeat="zone in zones">
@@ -20,8 +22,8 @@
     <fieldset>
       <legend>Select Trainer</legend>
       <div ng-repeat="trainer in trainers">
-        <input type="radio" name= 'trainer' value={{trainer.id}} ng-model="newAnimal.zone_id">
-        <label for= 'trainer'>{{trainer.location}}</label>
+        <input type="radio" name= 'trainer' value={{trainer.id}} ng-model="newAnimal.trainer_id">
+        <label for= 'trainer'>{{trainer.name}}</label>
       </div>
     </fieldset>
     <input type="button" value="add animal" ng-click="addAnimal()">
