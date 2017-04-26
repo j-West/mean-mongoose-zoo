@@ -1,32 +1,37 @@
-<div class="center">
-  <h1>Look at all these animals you have!</h1>
-</div>
-
-<div class="">
+<div class="center views">
   <a href="/#!/add"><input type="button" value="edit your zoo"></a>
   <a href="/#!/zoo"><input type="button" value="look at your zoo"></a>
   <a href="/#!/"><input type="button" value="home"></a>
+  <h1>Look at all these animals you have!</h1>
+</div>
+
+<div class="center nav-search">
+  <button type="button" ng-click="setView('animals')">Animals</button>
+  <button type="button" ng-click="setView('zones')">Zones</button>
+  <button type="button" ng-click="setView('trainers')">Trainers</button>
 
 </div>
 
+<div ng-show="view === 'animals'">
+  <div class="animalCard" ng-repeat="animal in animals">
+    <img class="animalPic" src="{{animal.photo}}">
+    <div class="">
+      {{ animal.name }} is a {{animal.age}} year old {{animal.species}} who resides in the {{animal.zone.location}} zone.
+    </div>
+    <div>
+      <input type="button" value="remove" ng-click="remove(animal.id)">
+      <input type="button" value="edit" ng-click="editing = !editing">
+    </div>
+    <div ng-if="true">
+      <label class="label" for="name">Name</label>
+      <input name='name' type="text" ng-model="animal.name">
 
-<div class="animalCard" ng-repeat="animal in animals">
-<img class="animalPic" src="{{animal.photo}}">
-  {{ animal.name }} is a {{animal.age}} year old {{animal.species}} cared for by
-  <span ng-if="animal.zookeepers.length === 0">
-    no one
-  </span>
-  <span ng-repeat="zookeeper in animal.zookeepers">
-    {{$last? ' and ' : ''}}{{zookeeper.name}}{{$last? '.' : ', '}}
-  </span>
-  <div>
-    <input type="button" value="remove" ng-click="remove(animal.id)">
-    <input type="button" value="edit" ng-click="editing = !editing">
-  </div>
-  <div ng-if="true">
-    <input type="text" ng-model="animal.name">
-    <input type="text" ng-model="animal.species">
-    <input type="text" ng-model="animal.age">
-    <input type="button" value="save" ng-click="save(animal._id, animal)">
+      <label class="label" for="spec">Spec</label>
+      <input name='spec' type="text" ng-model="animal.species">
+
+      <label class="label" for="age">Age</label>
+      <input name='age' type="text" ng-model="animal.age">
+      <input type="button" value="save" ng-click="save(animal._id, animal)">
+    </div>
   </div>
 </div>
