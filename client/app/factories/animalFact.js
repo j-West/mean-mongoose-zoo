@@ -1,4 +1,4 @@
-app.factory('AnimalFact', function($http) { 
+app.factory('AnimalFact', function($http) {
 
   return {
 

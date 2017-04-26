@@ -33,7 +33,7 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact, Zone
 
   $scope.addZookeeper = () => {
     ZookeeperFact.add($scope.newZookeeper)
-    .then(() => { 
+    .then(() => {
       $scope.zookeepers.push($scope.newZookeeper)
       $scope.newZookeeper = {}
     })
@@ -42,7 +42,7 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact, Zone
   $scope.deleteZookeeper = (id) => {
     ZookeeperFact.delete(id)
     .then(() => {
-      popPage()
+
     })
   }
 })
