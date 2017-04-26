@@ -151,3 +151,15 @@ input {
 .bottom-row {
   margin-top: 7%;
 }
+
+.active-zone {
+  margin-left: 50%;
+}
+
+.zookeeper_photo {
+  height: 370px;
+}
+
+.zookeeper_name {
+  font-size: 30px;
+}

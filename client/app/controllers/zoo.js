@@ -44,7 +44,8 @@ app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
   }
 
   $scope.showZone = (zoneId) => {
-    
+    $scope.activeZone = zoneId
+    console.log($scope.activeZone)
   }
 
 
