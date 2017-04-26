@@ -45,18 +45,21 @@
 
   <div class="map" ng-show="view == 'zones'">
   <div class="row top-row">
-    <button class="map-button nw">Northwest</button>
-    <button class="map-button ne">Northeast</button>
+    <button ng-click="showZone(3)" class="map-button nw">Northwest</button>
+    <button ng-click="showZone(1)" class="map-button ne">Northeast</button>
   </div>
   <div class="row cent-row">
-    <button class="map-button cent">Central</button>
+    <button ng-click="showZone(4)" class="map-button cent">Central</button>
   </div>
 
   <div class="row bottom-row">
-    <button class="map-button sw">Southwest</button>
-    <button class="map-button se">Southeast</button>
+    <button ng-click="showZone(5)" class="map-button sw">Southwest</button>
+    <button ng-click="showZone(2)" class="map-button se">Southeast</button>
+  </div>
+  
+
+  <div ng-show="activeZone" class="active-zone">
+    
   </div>
 
-
-    <!-- <img src="https://www.visualitineraries.com/img/locations/Taronga-Zoo-9842.jpg" /> -->
   </div>

@@ -101,9 +101,10 @@ input {
 
 .map {
   /*margin-left: 5%;*/
-  height: 800px;
-  width: 1140px;
-  background: url(/app/zoo_map.jpg) center / cover no-repeat
+  height: 400px;
+  width: 580px;
+  background: url(/app/zoo_map.jpg) center / cover no-repeat;
+  /*padding-top: 5px;*/
 }
 
 .map-button {
@@ -119,8 +120,12 @@ input {
   border-radius: 5px;
 }
 
+.nw {
+  margin-left: 20%
+}
+
 .ne {
-  margin-left: 50%;
+  margin-left: 40%;
 }
 
 .se {
@@ -133,6 +138,10 @@ input {
 
 .cent {
   margin-left: 45%;
+}
+
+.top-row {
+  margin-top: 10%;
 }
 
 .cent-row {

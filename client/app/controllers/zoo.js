@@ -1,6 +1,7 @@
 app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
 
   $scope.view = 'animals'
+  $scope.activeZone = ''
 
   const getAnimals = () =>{
     AnimalFact.getAll()
@@ -40,6 +41,10 @@ app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
 
   $scope.setView = (view) => {
     $scope.view = view
+  }
+
+  $scope.showZone = (zoneId) => {
+    
   }
 
 
