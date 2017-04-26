@@ -6,21 +6,32 @@ app.controller('ZooCtrl', function($scope, AnimalFact, TrainerFact){
   const getAnimals = () =>{
     AnimalFact.getAll()
       .then((data) => {
+        console.log(data);
         $scope.animals = data
       })
   }
-
   getAnimals()
 
-  $scope.remove = (id) => {
+  //REMOVE ANIMAL
+  $scope.remove = (id, index) => {
+
     AnimalFact.remove(id)
     .then(() => {
-      getAnimals()
+      // getAnimals()
+      $scope.animals.splice(index, 1)
     })
   }
 
-  $scope.save = (updateInfo) => {
-    AnimalFact.update(updateInfo)
+  // UPDATE
+  $scope.save = (id, name, species, age) => {
+    const animal = {
+      id: id,
+      name: name,
+      species: species,
+      age: age
+    }
+
+    AnimalFact.update(animal)
     .then(() => {
       console.log("updated!!")
       $scope.editing = false;
@@ -28,6 +39,7 @@ app.controller('ZooCtrl', function($scope, AnimalFact, TrainerFact){
     })
   }
 
+  // NAV FUNCTION
   $scope.setView = (view) => {
     $scope.view = view
   }

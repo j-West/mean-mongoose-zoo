@@ -17,7 +17,7 @@ app.factory('AnimalFact', function($http) {
 
     remove: function(id) {
       return $http.delete(`http://localhost:3000/api/animals/${id}`)
-        .then((data) => val.data)
+        .then((val) => val.data)
     },
 
     update: (updateInfo) => {
