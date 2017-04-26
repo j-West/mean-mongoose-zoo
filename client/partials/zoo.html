@@ -40,13 +40,13 @@
 
 <div ng-show="view === 'trainers'">
   <div class="animalCard" ng-repeat="trainer in trainers">
-    <img class="animalPic" src="{{trainer.photo}}">
+    <img class="animalPic" src="{{ trainer.photo }}">
       <p ng-if="trainer.name.length === 0">The position to train {{ trainer.animal_type }} is currently open.  We are taking applications, please send your resume and a rock to joelLegg@hotmail.com</p>
       <p ng-if="trainer.name.length !== 0">{{ trainer.name }} is a trainer of {{ trainer.animal_type }}.  {{ trainer.name }} teaches {{ trainer.animal_type }} the trick: {{ trainer.trick_name }}</p>
     <div>
       <input type="button" value="edit" ng-click="editing = !editing">
     </div>
-    <div ng-if="true">
+    <div ng-show="editing">
       <input type="text" ng-model="trainer.name">
       <input type="text" ng-model="trainer.animal_type">
       <input type="text" ng-model="trainer.trick_name">
