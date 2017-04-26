@@ -6,12 +6,24 @@
     <input type="text" ng-model="newAnimal.name" placeholder="Francine" name="name">  
     <label for="species">Species</label>
     <input type="text" ng-model="newAnimal.species" placeholder="Penguin" name="species">
+    <label for="type">Type</label>
+    <input type="text" ng-model="newAnimal.type" placeholder="Birds of Prey" name="type">
     <label for="age">Age</label>
     <input type="number" ng-model="newAnimal.age" placeholder="3" name="age">
-    <div ng-repeat="zookeeper in zookeepers">
-      <input type="checkbox" name={{zookeeper.name}} value={{zookeeper.name}} ng-model="zookeeper.checked">
-      <label for={{zookeeper.name}}>{{zookeeper.name}}</label>
-    </div>
+    <fieldset>
+      <legend>Select Zone</legend>
+      <div ng-repeat="zone in zones">
+        <input type="radio" name= 'zone' value={{zone.id}} ng-model="newAnimal.zone_id">
+        <label for= 'zone'>{{zone.location}}</label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Select Trainer</legend>
+      <div ng-repeat="trainer in trainers">
+        <input type="radio" name= 'trainer' value={{trainer.id}} ng-model="newAnimal.zone_id">
+        <label for= 'trainer'>{{trainer.location}}</label>
+      </div>
+    </fieldset>
     <input type="button" value="add animal" ng-click="addAnimal()">
   </div>
 </fieldset>
