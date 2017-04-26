@@ -57,6 +57,6 @@
 <fieldset>
   <div ng-repeat="zookeeper in zookeepers">
     <p class="zookeeperDeleteName" for={{zookeeper.name}}>{{zookeeper.name}}</p>
-    <input class="deleteZookeeperButton" type="button" value="delete" ng-click="deleteZookeeper(zookeeper.id)">
+    <input class="deleteZookeeperButton" type="button" value="delete" ng-click="deleteZookeeper(zookeeper.id, $index)">
   </div>
 </fieldset>
