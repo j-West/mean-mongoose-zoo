@@ -34,12 +34,14 @@ app.controller('AddAnimalCtrl', function($scope, AnimalFact, ZookeeperFact, Zone
   $scope.addZookeeper = () => {
     ZookeeperFact.add($scope.newZookeeper)
     .then(() => {
+      
       $scope.zookeepers.push($scope.newZookeeper)
       $scope.newZookeeper = {}
     })
   }
 
-  $scope.deleteZookeeper = (id) => {
+  $scope.deleteZookeeper = (id, index) => {
+    $scope.zookeepers.splice(index, 1)
     ZookeeperFact.delete(id)
     .then(() => {
 

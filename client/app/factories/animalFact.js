@@ -17,11 +17,11 @@ app.factory('AnimalFact', function($http) {
 
     remove: function(id) {
       return $http.delete(`http://localhost:3000/api/animals/${id}`)
-        .then((data) => val.data)
+        .then((val) => val.data)
     },
 
-    update: (id, updateInfo) => {
-      return $http.patch(`http://localhost:3000/api/animals/${id}`, updateInfo)
+    update: (updateInfo) => {
+      return $http.patch(`http://localhost:3000/api/animals`, updateInfo)
         .then((val) => val.data)
         // .catch((err) => console.log("err:", err))
     }
