@@ -26,3 +26,22 @@
       <input type="button" value="save" ng-click="save(animal._id, animal)">
     </div>
   </div>
+
+              <!--TRAINERS-->
+
+
+    <div class="animalCard" ng-repeat="trainer in trainers">
+  <img class="animalPic" src="{{trainer.photo}}">
+    {{ trainer.name }} is a trainer of {{ trainer.animal_type }}.  {{ trainer.name }} teaches {{ trainer.animal_type }} the trick: {{ trainer.trick_name }}
+   
+    <div>
+      <input type="button" value="remove" ng-click="remove(animal.id)">
+      <input type="button" value="edit" ng-click="editing = !editing">
+    </div>
+    <div ng-if="true">
+      <input type="text" ng-model="animal.name">
+      <input type="text" ng-model="animal.species">
+      <input type="text" ng-model="animal.age">
+      <input type="button" value="save" ng-click="save(animal._id, animal)">
+    </div>
+  </div>
