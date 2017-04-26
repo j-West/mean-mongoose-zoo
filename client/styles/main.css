@@ -163,3 +163,7 @@ input {
 .zookeeper_name {
   font-size: 30px;
 }
+
+.animallist {
+  display: inline;
+}

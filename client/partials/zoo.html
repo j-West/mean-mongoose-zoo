@@ -61,10 +61,14 @@
      <div ng-show="activeZone" class="active-zone">
         <div ng-repeat="zookeeper in zookeepers | filter : {zone: {id: activeZone} }">
             <h2>{{ zookeeper.zone.location }}</h2>
-            <span class="zookeeper_name">Zookeeper:</span>
+            <span class="zookeeper_name">Zookeeper: </span>
             <span class="zookeeper_name">{{zookeeper.name}}</span>
-            <img class="zookeeper_photo" src="{{zookeeper.photo}}"/>   
-
+            <img class="zookeeper_photo" src="{{zookeeper.photo}}"/>  
+          <div class="animalist" ng-repeat="animal in animals | filter : {zone_id: activeZone}">
+            <ul>
+              <li>{{animal.name}}</li>
+            </ul>
+          </div>
         </div>
       </div>
   </div>

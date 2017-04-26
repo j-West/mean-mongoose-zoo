@@ -7,6 +7,7 @@ app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
     AnimalFact.getAll()
       .then((data) => {
         $scope.animals = data
+        console.log(data)
       })
   }
 
@@ -17,7 +18,7 @@ app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
 
   ZookeeperFact.getAll()
   .then(zookeepers => {
-    console.log(zookeepers)
+    // console.log(zookeepers)
     $scope.zookeepers = zookeepers
   })
 
