@@ -1,15 +1,13 @@
 app.factory('ZoneFact', function($http){
-  
+
   return {
     getAll: function() {
       return $http.get(`http://localhost:3000/api/zones`)
-        .then((val) => { 
-          return val.data
-        }) 
+        .then((val) => val.data )
       },
     getOne: function(id) {
         return $http.get(`http://localhost:3000/api/zones/${id}`)
-          .then((val) =>  val.data)
+          .then((val) =>  val.data )
       },
     add: function(newZone) {
       return $http.post(`http://localhost:3000/api/zones`, newZone)
