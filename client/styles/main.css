@@ -170,3 +170,9 @@ input {
 .animallist {
   display: inline;
 }
+
+.keeper_thumb {
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
+}
