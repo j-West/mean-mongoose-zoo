@@ -70,7 +70,7 @@
 
 <div ng-show="view == 'zones'">
   <div class="row">
-     <div class="map col-xs-6">
+     <div class="map col-xs-5">
         <div class="row top-row">
           <button ng-click="showZone(3)" value="3" class="map-button nw">Northwest</button>
           <button ng-click="showZone(1)" value="1" class="map-button ne">Northeast</button>
@@ -84,19 +84,20 @@
           <button ng-click="showZone(2)" value="2" class="map-button se">Southeast</button>
         </div>
       </div>
-     <div ng-show="activeZone" class="active-zone">
-        <div ng-repeat="zookeeper in zookeepers | filter : {zone: {id: activeZone} }">
-            <h2>{{ zookeeper.zone.location }}</h2>
-            <span class="zookeeper_name">Zookeeper: </span>
-            <span class="zookeeper_name">{{zookeeper.name}}</span>
-            <img class="zookeeper_photo" src="{{zookeeper.photo}}"/>  
-        </div>
-          <h2>Animals in Zone: </h2>
-          <div class="animalist" ng-repeat="animal in animals | filter : {zone_id: activeZone}">
-            <ul>
-              <li>{{animal.name}}</li>
-            </ul>
+      <div class="col-xs-6">
+        <div ng-show="activeZone" class="active-zone">
+          <div ng-repeat="zookeeper in zookeepers | filter : {zone: {id: activeZone} }">
+              <img class="zookeeper_photo" src="{{zookeeper.photo}}"/>  
+              <span class="zookeeper_name">{{zookeeper.zone.location}} Zone Zookeeper: </span>
+              <span class="zookeeper_name">{{zookeeper.name}}</span>
+            <h3 class="zookeeper_name">Animals in Zone: </h3>
+            <div class="animalist" ng-repeat="animal in animals | filter : {zone_id: activeZone}">
+              <ul>
+                <li>{{animal.name}}</li>
+              </ul>
+            </div>
           </div>
+        </div>      
       </div>
   </div>
 

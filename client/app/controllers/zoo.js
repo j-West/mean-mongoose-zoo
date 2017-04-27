@@ -1,4 +1,4 @@
-app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact){
+app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact, TrainerFact){
 
   $scope.view = 'animals'
   $scope.activeZone = ''
