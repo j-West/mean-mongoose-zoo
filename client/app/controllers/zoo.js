@@ -7,9 +7,7 @@ app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact, 
   const getAnimals = () =>{
     AnimalFact.getAll()
       .then((data) => {
-        console.log(data);
         $scope.animals = data
-        console.log(data)
       })
   }
 
@@ -47,30 +45,26 @@ app.controller('ZooCtrl', function($scope, AnimalFact, ZoneFact, ZookeeperFact, 
 
     AnimalFact.update(animal)
     .then(() => {
-      console.log("updated!!")
       $scope.editing = false;
-      getAnimals()
+      // getAnimals()
     })
   }
 
   // NAV FUNCTION
   $scope.setView = (view) => {
-    console.log(view)
     $scope.view = view
   }
 
   $scope.showZone = (zoneId) => {
     $scope.activeZone = zoneId
-    console.log($scope.activeZone)
   }
 
   // TRAINERS
 
-    const getTrainers = () => {
+  const getTrainers = () => {
     TrainerFact.getAll()
     .then(trainers => {
       $scope.trainers = trainers
-      console.log($scope.trainers);
     })
   }
 
@@ -84,7 +78,7 @@ $scope.updateTrainer = (id, name, photo) => {
   TrainerFact.patch(trainerEdits)
   .then(() => {
     $scope.editing = false
-    getTrainers()
+    // getTrainers()
   })
 }
 // REMOVE TRAINER
